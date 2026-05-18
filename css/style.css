@@ -1,0 +1,486 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: url("../assets/images/Background.png");
+  background-size: cover;
+  color: white;
+  padding-top: 90px; /* กัน header บัง content */
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;              /* ⭐ สำคัญมาก */
+  box-sizing: border-box;   /* ⭐ กัน padding ทำให้ล้น */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 60px;
+  background: rgba(0, 26, 60);
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.section {
+  scroll-margin-top: 80px; /* ความสูงของ Fixed Navbar */
+}
+
+.nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.nav a.active {
+  color: #ff7a18;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  min-height: calc(100vh - 90px);
+  padding: 60px;
+}
+
+.hero-left {
+  flex: 1;
+}
+
+.hero-left h1 {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+.hero-left h2 {
+  font-size: 32px;
+  color: #ff7a18;
+  margin-bottom: 20px;
+}
+
+.hero-left p {
+  max-width: 500px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-primary {
+  background: #ff7a18;
+  border: none;
+  padding: 14px 28px;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid white;
+  padding: 14px 28px;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/* --- HERO LOGO ANIMATION --- */
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-animated-logo {
+  width: 100%;
+  max-width: 2000px;
+  height: auto;
+  filter: drop-shadow(0 0 15px rgba(255, 122, 24, 0.4));
+  overflow: visible;
+}
+
+/* 1. พระอาทิตย์ Rise Up */
+.hero-sun-body {
+  fill: url(#heroSunGrad);
+  transform-origin: bottom center;
+  animation: logoRise 1s ease-out forwards;
+}
+
+/* 2. เส้นวงจร (วาดแบบคมชัด) */
+.hero-circuit-lines path {
+  stroke: #ff7a18;
+  stroke-width: 3.5;
+  fill: none;
+  stroke-linecap: square; /* ปลายเส้นตัดตรงแบบ Digital */
+  stroke-linejoin: miter;  /* มุมหักแหลมคม */
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLines 1.8s ease-in-out 0.8s forwards;
+}
+
+/* 3. จุด Node เด้งออกแบบมีจังหวะ */
+.hero-nodes circle {
+  fill: #ff7a18;
+  transform: scale(0);
+  transform-origin: center;
+  animation: popCircle 0.5s cubic-bezier(0.17, 0.89, 0.32, 1.49) forwards;
+}
+
+/* กำหนด Delay ให้แต่ละจุดเด้งไม่พร้อมกัน (จะดูพรีเมียมมาก) */
+.hero-nodes circle:nth-child(1) { animation-delay: 2.2s; }
+.hero-nodes circle:nth-child(2) { animation-delay: 2.3s; }
+.hero-nodes circle:nth-child(3) { animation-delay: 2.3s; }
+.hero-nodes circle:nth-child(4) { animation-delay: 2.4s; }
+.hero-nodes circle:nth-child(5) { animation-delay: 2.4s; }
+.hero-nodes circle:nth-child(n+6) { animation-delay: 2.5s; }
+
+/* 4. ฐาน */
+.hero-base {
+  opacity: 0;
+  animation: fadeInBase 0.8s ease forwards 0.5s;
+}
+
+/* --- ANIMATION KEYFRAMES --- */
+@keyframes logoRise {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes drawLines {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes popCircle {
+  to { transform: scale(1); }
+}
+
+@keyframes fadeInBase {
+  to { opacity: 1; }
+}
+
+/* เอฟเฟกต์เรืองแสงเบาๆ ตลอดเวลา */
+.hero-nodes circle {
+  animation: popCircle 0.5s cubic-bezier(0.17, 0.89, 0.32, 1.49) forwards,
+             breathingGlow 2s infinite alternate ease-in-out 2.6s;
+}
+
+@keyframes breathingGlow {
+  from { filter: drop-shadow(0 0 2px #ff7a18); }
+  to { filter: drop-shadow(0 0 10px #ff7a18); }
+}
+
+.services {
+  background: #f4f6f8;
+  color: #0b1d4d;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  color: #ff7a18;
+  margin-bottom: 60px;
+}
+
+/* GRID */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.service-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card img {
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* HOVER */
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projects {
+  background: #0b1d4d;
+  color: white;
+  text-align: center;
+}
+
+.projects .section-title {
+  color: white;
+}
+
+.projects .section-subtitle {
+  color: #ff7a18;
+  margin-bottom: 60px;
+}
+
+/* GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.project-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+/* OVERLAY */
+.project-info {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 29, 77, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.project-info h3 {
+  margin-bottom: 10px;
+}
+
+.project-info span {
+  font-size: 14px;
+  color: #ff7a18;
+}
+
+/* HOVER EFFECT */
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-card:hover .project-info {
+  opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about {
+  background: #ffffff;
+  color: #0b1d4d;
+}
+
+.about-container {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+/* TEXT */
+.about-text {
+  flex: 1;
+}
+
+.about-text .section-title {
+  margin-bottom: 20px;
+}
+
+.about-text .highlight {
+  font-size: 18px;
+  color: #ff7a18;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.about-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about-list li {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+/* IMAGE */
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    max-width: 500px;
+  }
+}
+
+.contact {
+  background: #f4f6f8;
+  color: #0b1d4d;
+  text-align: center;
+}
+
+.contact .section-subtitle {
+  color: #ff7a18;
+  margin-bottom: 50px;
+}
+
+.contact-container {
+  display: flex;
+  gap: 60px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* INFO */
+.contact-info {
+  flex: 1;
+  text-align: left;
+}
+
+.contact-info h3 {
+  margin-bottom: 10px;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.contact-info li {
+  margin-bottom: 10px;
+}
+
+/* FORM */
+.contact-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.contact-form button {
+  background: #ff7a18;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.contact-form button:hover {
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+}
+
