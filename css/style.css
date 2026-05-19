@@ -21,8 +21,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;              /* ⭐ สำคัญมาก */
-  box-sizing: border-box;   /* ⭐ กัน padding ทำให้ล้น */
+  width: 100%; /* ⭐ สำคัญมาก */
+  box-sizing: border-box; /* ⭐ กัน padding ทำให้ล้น */
 
   display: flex;
   justify-content: space-between;
@@ -138,7 +138,7 @@ body {
   stroke-width: 3.5;
   fill: none;
   stroke-linecap: square; /* ปลายเส้นตัดตรงแบบ Digital */
-  stroke-linejoin: miter;  /* มุมหักแหลมคม */
+  stroke-linejoin: miter; /* มุมหักแหลมคม */
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   animation: drawLines 1.8s ease-in-out 0.8s forwards;
@@ -153,12 +153,24 @@ body {
 }
 
 /* กำหนด Delay ให้แต่ละจุดเด้งไม่พร้อมกัน (จะดูพรีเมียมมาก) */
-.hero-nodes circle:nth-child(1) { animation-delay: 2.2s; }
-.hero-nodes circle:nth-child(2) { animation-delay: 2.3s; }
-.hero-nodes circle:nth-child(3) { animation-delay: 2.3s; }
-.hero-nodes circle:nth-child(4) { animation-delay: 2.4s; }
-.hero-nodes circle:nth-child(5) { animation-delay: 2.4s; }
-.hero-nodes circle:nth-child(n+6) { animation-delay: 2.5s; }
+.hero-nodes circle:nth-child(1) {
+  animation-delay: 2.2s;
+}
+.hero-nodes circle:nth-child(2) {
+  animation-delay: 2.3s;
+}
+.hero-nodes circle:nth-child(3) {
+  animation-delay: 2.3s;
+}
+.hero-nodes circle:nth-child(4) {
+  animation-delay: 2.4s;
+}
+.hero-nodes circle:nth-child(5) {
+  animation-delay: 2.4s;
+}
+.hero-nodes circle:nth-child(n + 6) {
+  animation-delay: 2.5s;
+}
 
 /* 4. ฐาน */
 .hero-base {
@@ -168,31 +180,48 @@ body {
 
 /* --- ANIMATION KEYFRAMES --- */
 @keyframes logoRise {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes drawLines {
-  to { stroke-dashoffset: 0; }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes popCircle {
-  to { transform: scale(1); }
+  to {
+    transform: scale(1);
+  }
 }
 
 @keyframes fadeInBase {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 /* เอฟเฟกต์เรืองแสงเบาๆ ตลอดเวลา */
 .hero-nodes circle {
-  animation: popCircle 0.5s cubic-bezier(0.17, 0.89, 0.32, 1.49) forwards,
-             breathingGlow 2s infinite alternate ease-in-out 2.6s;
+  animation:
+    popCircle 0.5s cubic-bezier(0.17, 0.89, 0.32, 1.49) forwards,
+    breathingGlow 2s infinite alternate ease-in-out 2.6s;
 }
 
 @keyframes breathingGlow {
-  from { filter: drop-shadow(0 0 2px #ff7a18); }
-  to { filter: drop-shadow(0 0 10px #ff7a18); }
+  from {
+    filter: drop-shadow(0 0 2px #ff7a18);
+  }
+  to {
+    filter: drop-shadow(0 0 10px #ff7a18);
+  }
 }
 
 .services {
@@ -216,6 +245,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  padding: 100px;
 }
 
 /* CARD */
@@ -223,8 +253,10 @@ body {
   background: white;
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .service-card img {
@@ -244,7 +276,7 @@ body {
 /* HOVER */
 .service-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* RESPONSIVE */
@@ -280,6 +312,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  padding: 100px;
 }
 
 /* CARD */
@@ -349,6 +382,7 @@ body {
   display: flex;
   gap: 60px;
   align-items: center;
+  padding: 20px;
 }
 
 /* TEXT */
@@ -389,7 +423,7 @@ body {
 .about-image img {
   width: 100%;
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* RESPONSIVE */
@@ -420,6 +454,7 @@ body {
   gap: 60px;
   max-width: 1100px;
   margin: auto;
+  padding: 10px;
 }
 
 /* INFO */
@@ -484,3 +519,185 @@ body {
   }
 }
 
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  background: linear-gradient(135deg, #001a3c 0%, #002b66 100%);
+
+  padding-top: 10px;
+  color: white;
+  overflow: hidden;
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+
+  /* ปรับใหม่ */
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.3fr;
+
+  gap: 35px;
+
+  padding-bottom: 10px;
+}
+
+/* BRAND */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-bottom: 30px;
+}
+
+.footer-logo-box {
+  width: 42px;
+  height: 42px;
+
+  background: #ff7a18;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.footer-logo span {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.footer-desc {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  max-width: 320px;
+  margin-bottom: 35px;
+}
+
+/* SOCIAL */
+.footer-social {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-social a {
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.footer-social a:hover {
+  background: #ff7a18;
+  border-color: #ff7a18;
+  transform: translateY(-3px);
+}
+
+/* COLUMN */
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-column h4 {
+  font-size: 18px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+/* ORANGE LINE */
+.footer-column h4::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+
+  width: 45px;
+  height: 4px;
+
+  background: #ff7a18;
+  border-radius: 10px;
+}
+
+.footer-column a,
+.footer-column p {
+  color: rgba(255, 255, 255, 0.75);
+
+  text-decoration: none;
+
+  margin-bottom: 15px;
+
+  transition: 0.3s;
+  line-height: 1.7;
+}
+
+.footer-column a:hover {
+  color: #ff7a18;
+  transform: translateX(5px);
+}
+
+/* BOTTOM */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  padding: 10px 5%;
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 15px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .footer {
+    padding-top: 60px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .footer-logo span {
+    font-size: 24px;
+  }
+
+  .footer-column h4 {
+    margin-bottom: 25px;
+  }
+}
