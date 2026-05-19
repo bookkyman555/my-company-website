@@ -1,6 +1,54 @@
  <header class="header">
     <div class="logo">
-        <img src="assets/icons/Logo.png" alt="Ravi Tech" />
+        <svg class="hero-animated-header" viewBox="0 0 500 350"
+            xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <lineargradient id="heroSunGrad" x1="0%" y1="0%" x2="0%"
+                    y2="100%">
+                    <stop offset="0%"
+                        style="stop-color:#ff7a18;stop-opacity:1" />
+                    <stop offset="100%"
+                        style="stop-color:#0b1d4d;stop-opacity:1" />
+                </lineargradient>
+            </defs>
+
+            <path class="hero-sun-body"
+                d="M150,230 A100,95 0 0,1 350,230 L150,230 Z" />
+
+            <g class="hero-circuit-lines">
+                <path d="M250,135 L250,40" />
+                <path d="M220,140 L220,90 L190,60" />
+                <path d="M280,140 L280,90 L310,60" />
+
+                <path d="M190,160 L140,160 L100,120" />
+                <path d="M310,160 L360,160 L400,120" />
+
+                <path d="M165,190 L70,190" />
+                <path d="M335,190 L430,190" />
+
+                <path d="M155,215 L110,215" />
+                <path d="M345,215 L390,215" />
+            </g>
+
+            <g class="hero-nodes">
+                <circle cx="250" cy="40" r="6" />
+                <circle cx="190" cy="60" r="6" />
+                <circle cx="310" cy="60" r="6" />
+                <circle cx="100" cy="120" r="6" />
+                <circle cx="400" cy="120" r="6" />
+                <circle cx="70" cy="190" r="6" />
+                <circle cx="430" cy="190" r="6" />
+                <circle cx="110" cy="215" r="5" />
+                <circle cx="390" cy="215" r="5" />
+            </g>
+
+            <line x1="150" y1="245" x2="350" y2="245" stroke="#ff7a18"
+                stroke-width="5" class="hero-base" />
+            <line x1="170" y1="258" x2="330" y2="258" stroke="#ff7a18"
+                stroke-width="3" class="hero-base" />
+            <line x1="190" y1="268" x2="310" y2="268" stroke="#ff7a18"
+                stroke-width="2" class="hero-base" />
+        </svg>
         <span>RAVI TECH SYSTEMS</span>
     </div>
 
