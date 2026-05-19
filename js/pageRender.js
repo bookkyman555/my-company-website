@@ -22,6 +22,7 @@ function loadContent(pagePath) {
     .then((html) => {
       // เอาเนื้อหาใหม่ที่ดึงมา ไปยัดใส่แทนที่เนื้อหาเดิมในกล่อง content-container
       document.getElementById("content-container").innerHTML = html;
+      initContactForm();
     })
     .catch((error) => {
       console.error("Error loading content:", error);
