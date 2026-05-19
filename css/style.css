@@ -28,7 +28,7 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  padding: 20px 60px;
+  padding: 3px 60px;
   background: rgba(0, 26, 60);
   z-index: 1000;
 }
