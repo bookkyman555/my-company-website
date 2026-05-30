@@ -42,9 +42,13 @@ body {
 /* text */
 .logo span {
   white-space: nowrap;
-
   font-size: 22px;
   font-weight: 700;
+}
+@media (max-width: 768px) {
+  .logo span {
+    font-size: 16px;
+  }
 }
 
 .section {
@@ -128,8 +132,15 @@ body {
   filter: drop-shadow(0 0 15px rgba(255, 122, 24, 0.4));
   overflow: visible;
 }
+@media (max-width: 768px) {
+  .hero-animated-logo {
+    display: none;
+  }
+}
 .hero-animated-header {
-  width: 120px;
+  width: clamp(40px, 8vw, 120px);
+  min-width: 80px;
+  height: auto;
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -733,5 +744,65 @@ body {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.menu-toggle::before {
+  content: "☰";
+}
+
+.menu-toggle.active::before {
+  content: "✕";
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: white;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+
+    background: rgba(0, 26, 60, 0.98);
+
+    display: flex;
+    flex-direction: column;
+
+    max-height: 0;
+    overflow: hidden;
+
+    transition: max-height 0.3s ease;
+  }
+
+  .nav a {
+    margin: 0;
+    padding: 15px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav.active {
+    max-height: 400px;
   }
 }
