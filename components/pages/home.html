@@ -11,7 +11,9 @@
         </p>
 
         <div class="buttons">
-            <button class="btn-primary">CONTACT US</button>
+            <button class="btn-primary"
+                onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">CONTACT
+                US</button>
             <button class="btn-outline">VIEW PROJECTS</button>
         </div>
     </div>
@@ -235,43 +237,6 @@
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-R7X6Z_lX9D6YQ8-R0E9T4Y2G8X1W9Z5M7K4L3N2O1P0Q9R8S7T6U5V4W3X2Y1Z0" />
             </div>
         </div>
-
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section contact">
-    <h2 class="section-title">Contact Us</h2>
-    <p class="section-subtitle">
-        Get in touch with our engineering team
-    </p>
-
-    <div class="contact-container">
-
-        <!-- CONTACT INFO -->
-        <div class="contact-info">
-            <h3>RAVI TECH SYSTEMS</h3>
-
-            <p>
-                Factory Automation & System Integration
-            </p>
-
-            <ul>
-                <li><strong>📍 Address:</strong> Bangkok, Thailand</li>
-                <li><strong>📞 Phone:</strong> +66 81 709 9994</li>
-                <li><strong>📧 Email:</strong> ravitechsys.css.info@gmail.com</li>
-            </ul>
-        </div>
-
-        <!-- CONTACT FORM -->
-        <form class="contact-form" id="myContactForm">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="email" name="email" placeholder="Your Email"
-                required />
-            <input type="text" name="subject" placeholder="Subject" />
-            <textarea name="message" placeholder="Message" rows="5"></textarea>
-            <button id="submitBtn" type="submit">Send Message</button>
-        </form>
 
     </div>
 </section>

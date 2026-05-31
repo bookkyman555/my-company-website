@@ -39,6 +39,20 @@ document.addEventListener("DOMContentLoaded", function () {
   loadContent("components/pages/home.html");
 });
 
+// ฟังก์ชันสำหรับโหลด PRE Footer
+function loadPreFooter() {
+  // ใส่ Path (เส้นทาง) ให้ตรงกับที่อยู่ไฟล์จริงของคุณ
+  fetch("components/pre-footer/pre-footer.html")
+    .then((response) => {
+      if (!response.ok) throw new Error("โหลด Footer ไม่สำเร็จ");
+      return response.text();
+    })
+    .then((data) => {
+      document.getElementById("pre-footer-container").innerHTML = data;
+    })
+    .catch((error) => console.error("Error loading footer:", error));
+}
+
 // ฟังก์ชันสำหรับโหลด Footer
 function loadFooter() {
   // ใส่ Path (เส้นทาง) ให้ตรงกับที่อยู่ไฟล์จริงของคุณ
@@ -78,4 +92,5 @@ function initHamburgerMenu() {
 }
 // เรียกใช้งานฟังก์ชันทันทีที่เปิดหน้าเว็บ
 loadHeader();
+loadPreFooter();
 loadFooter();
