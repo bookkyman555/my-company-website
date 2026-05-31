@@ -566,7 +566,7 @@ body {
   display: grid;
 
   /* ปรับใหม่ */
-  grid-template-columns: 2fr 1fr 1fr 1fr 1.3fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.8fr;
 
   gap: 35px;
 
