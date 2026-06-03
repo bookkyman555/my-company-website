@@ -20,7 +20,7 @@ function initContactForm() {
     const formData = new FormData(this);
 
     fetch(
-      "https://script.google.com/macros/s/AKfycbwe5lKcO7P_g9KhKy_6AiNNVHdAjPI6kX6ZCBqyGbk6PpiTGwrtEBPOdrXRO-1pc08/exec",
+      "https://script.google.com/macros/s/AKfycbwAVcIJPLdAu6jD_puwT5YENbTV05ItYkmgAC7TPXCyU3xdzf6_YuRXfSiTYDwQXxuo/exec",
       {
         method: "POST",
         body: formData,

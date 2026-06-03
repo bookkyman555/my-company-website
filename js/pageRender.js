@@ -36,7 +36,10 @@ function loadContent(pagePath) {
 
 // โหลดหน้าแรก (home.html) มาแสดงทันทีเมื่อเปิดหน้าเว็บ index.html ครั้งแรก
 document.addEventListener("DOMContentLoaded", function () {
-  loadContent("components/pages/home.html");
+  const page = window.location.hash.replace("#", "") || "home";
+
+  loadContent(`components/pages/${page}.html`);
+  // loadContent("components/pages/home.html");
 });
 
 // ฟังก์ชันสำหรับโหลด PRE Footer
@@ -82,7 +85,7 @@ function initHamburgerMenu() {
     menuToggle.classList.toggle("active");
   });
 
-   // ปิดเมนูเมื่อกด Link
+  // ปิดเมนูเมื่อกด Link
   navMenu.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       navMenu.classList.remove("active");
